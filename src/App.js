@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "@covalenthq/goldrush-kit/styles.css";
+import {
+  GoldRushProvider,
+  NFTWalletTokenListView,
+  TokenBalancesListView,
+  TokenTransfersListView,
+  AddressActivityListView,
+} from "@covalenthq/goldrush-kit";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container mt-4">
+      <GoldRushProvider apikey={process.env.REACT_APP_COVALENT_API_KEY} mode="dark" color="emerald">
+          <TokenBalancesListView
+              chain_names={[
+                  "eth-mainnet",
+                  "matic-mainnet",
+                  "bsc-mainnet",
+                  "avalanche-mainnet",
+                  "optimism-mainnet",
+              ]}
+              hide_small_balances
+              address="0x65a465013862bCb3Ca8f8D7e06E86312A9d410d8"
+          />
+
+          {/* <TokenTransfersListView
+              chain_name="eth-mainnet"
+              address="0xfc43f5f9dd45258b3aff31bdbe6561d97e8b71de"
+              contract_address="0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+          /> */}
+
+          {/* <AddressActivityListView address="0x617cd3DB0CbF26F323D5b72975c5311343e09115" /> */}
+      </GoldRushProvider>
     </div>
   );
 }
