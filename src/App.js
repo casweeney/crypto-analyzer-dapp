@@ -9,9 +9,9 @@ import {
 
 function App() {
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 mb-5">
       <GoldRushProvider apikey={process.env.REACT_APP_COVALENT_API_KEY} mode="dark" color="emerald">
-          <TokenBalancesListView
+          {/* <TokenBalancesListView
               chain_names={[
                   "eth-mainnet",
                   "matic-mainnet",
@@ -21,7 +21,7 @@ function App() {
               ]}
               hide_small_balances
               address="0x65a465013862bCb3Ca8f8D7e06E86312A9d410d8"
-          />
+          /> */}
 
           {/* <TokenTransfersListView
               chain_name="eth-mainnet"
@@ -29,7 +29,7 @@ function App() {
               contract_address="0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
           /> */}
 
-          {/* <AddressActivityListView address="0x617cd3DB0CbF26F323D5b72975c5311343e09115" /> */}
+          <AddressActivityListView address="0x65a465013862bCb3Ca8f8D7e06E86312A9d410d8" />
       </GoldRushProvider>
     </div>
   );
